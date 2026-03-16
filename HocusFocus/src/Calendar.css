@@ -13,8 +13,8 @@
     display: grid;
     /* This is the magic line: 7 equal columns */
     grid-template-columns: repeat(7, 1fr);
-    border-top: 1px solid #120d0d;
-    border-left: 1px solid #120d0d;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
   }
   
   .weekday-name {
@@ -27,13 +27,65 @@
   }
   
   .day-cell {
-    height: 100px;
-    padding: 10px;
-    background: white;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    height: 120px; /* Made it a bit taller */
+    cursor: pointer;
+    transition: background 0.2s;
+    overflow-y: auto; /* Scroll if too many events */
+  }
+  
+  .event-item {
+    background-color: #3b82f6; /* Nice blue */
+    color: white;
+    font-size: 11px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .day-cell:hover {
     background-color: #f9f9f9;
   }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .calendar-header button {
+    padding: 8px 16px;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  /* Gray out days that aren't in the current month */
+  .day-cell.disabled {
+    background-color: #433f3f;
+    color: #ccc;
+  }
+  
+  .day-events {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .event-tag {
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: white;
+  }
+  
+  /* Category Colors */
+  .event-tag.work { background-color: #3b82f6; }
+  .event-tag.personal { background-color: #10b981; }
+  .event-tag.urgent { background-color: #ef4444; }
