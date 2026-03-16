@@ -1,0 +1,39 @@
+.calendar-main {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: sans-serif;
+  }
+  
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    /* This is the magic line: 7 equal columns */
+    grid-template-columns: repeat(7, 1fr);
+    border-top: 1px solid #120d0d;
+    border-left: 1px solid #120d0d;
+  }
+  
+  .weekday-name {
+    background: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .day-cell {
+    height: 100px;
+    padding: 10px;
+    background: white;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .day-cell:hover {
+    background-color: #f9f9f9;
+  }
