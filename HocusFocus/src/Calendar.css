@@ -89,3 +89,52 @@
   .event-tag.work { background-color: #3b82f6; }
   .event-tag.personal { background-color: #10b981; }
   .event-tag.urgent { background-color: #ef4444; }
+
+  /* Month view: 7 columns, fixed height cells */
+  .view-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .view-controls button {
+    padding: 10px 20px;
+    border: 1px solid #3b82f6;
+    background: white;
+    color: #3b82f6;
+    border-radius: 20px; /* Rounded pill shape */
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .view-controls button.active {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  /* Adjusting the grid based on the view class */
+  .calendar-grid.month-view {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .calendar-grid.week-view {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .calendar-grid.day-view {
+    grid-template-columns: 1fr; /* Only one big column for the day */
+  }
+  
+  .day-cell {
+    min-height: 100px; /* Standard month height */
+  }
+  
+  .week-view .day-cell {
+    height: 400px; /* Taller cells for week view */
+  }
+  
+  .day-view .day-cell {
+    height: 600px; /* Very tall for single day view */
+  }
